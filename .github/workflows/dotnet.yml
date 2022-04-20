@@ -17,7 +17,7 @@ jobs:
         with: 
           dotnet-version: '3.1.x'
       - name: Build solution
-        run: dotnet build Actions-Kata
+        run: dotnet build
         
   test_solution:
     needs: [ build_solution ]
@@ -29,7 +29,7 @@ jobs:
         with:
           dotnet-version: '3.1.x'
       - name: Test solution
-        run: dotnet test Actions-Kata
+        run: dotnet test
   
   publish_solution:
     needs: [test_solution]
@@ -41,4 +41,4 @@ jobs:
         with: 
           dotnet-version: '3.1.x'
       - name: Publish solution
-        run: dotnet publish Actions-Kata
+        run: dotnet publish
