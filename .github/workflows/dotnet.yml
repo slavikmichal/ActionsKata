@@ -1,0 +1,9 @@
+name: Print Welcome Message
+on: [push]
+jobs:
+  print_message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome message
+        run: echo "Welcome to GitHub Actions"
+      
