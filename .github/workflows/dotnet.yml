@@ -17,3 +17,14 @@ jobs:
         with: 
           dotnet-version: '3.1.x'
       - run: dotnet build Actions-Kata
+        
+  test_solution:
+    needs: [ build_solution ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test solution
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '3.1.x'
+      - run: dotnet test Actions-Kata
