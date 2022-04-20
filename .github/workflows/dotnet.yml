@@ -11,9 +11,9 @@ jobs:
     needs: [print_message]
     runs-on: ubuntu-latest
     steps:
-      - name: Build dotnet
       - uses: actions/checkout@v3
-      - uses: actions/setup-dotnet@v2
+      - name: Build dotnet
+        uses: actions/setup-dotnet@v2
         with: 
           dotnet-version: '3.1.x'
         run: dotnet build Actions-Kata
@@ -22,9 +22,9 @@ jobs:
     needs: [ build_solution ]
     runs-on: ubuntu-latest
     steps:
-      - name: Test solution
       - uses: actions/checkout@v3
-      - uses: actions/setup-dotnet@v2
+      - name: Test solution
+        uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '3.1.x'
         run: dotnet test Actions-Kata
@@ -33,9 +33,9 @@ jobs:
     needs: [test_solution]
     runs-on: ubuntu-latest
     steps:
-      - name: Publish solution
       - uses: actions/checkout@v3
-      - uses: actions/setup-dotnet@v2
+      - name: Publish solution
+        uses: actions/setup-dotnet@v2
         with: 
           dotnet-version: '3.1.x'
         run: dotnet publish Actions-Kata
