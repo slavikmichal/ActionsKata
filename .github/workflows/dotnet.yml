@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Welcome message
-      - run: echo "Welcome to GitHub Actions"
+        run: echo "Welcome to GitHub Actions"
       
   build_solution:
     needs: [print_message]
@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-dotnet@v2
         with: 
           dotnet-version: '3.1.x'
-      - run: dotnet build Actions-Kata
+        run: dotnet build Actions-Kata
         
   test_solution:
     needs: [ build_solution ]
@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '3.1.x'
-      - run: dotnet test Actions-Kata
+        run: dotnet test Actions-Kata
   
   publish_solution:
     needs: [test_solution]
@@ -38,4 +38,4 @@ jobs:
       - uses: actions/setup-dotnet@v2
         with: 
           dotnet-version: '3.1.x'
-      - run: dotnet publish Actions-Kata
+        run: dotnet publish Actions-Kata
