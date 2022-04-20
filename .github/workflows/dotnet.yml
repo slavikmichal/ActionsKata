@@ -4,7 +4,7 @@ jobs:
   print_message:
     runs-on: ubuntu-latest
     steps:
-      - name: Welcome message
+        - name: Welcome message
         run: echo "Welcome to GitHub Actions"
       
   build_solution:
@@ -12,10 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build dotnet
+      - name: Setup dotnet
         uses: actions/setup-dotnet@v2
         with: 
           dotnet-version: '3.1.x'
+      - name: Build solution
         run: dotnet build Actions-Kata
         
   test_solution:
@@ -23,10 +24,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Test solution
+      - name: Setup solution
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '3.1.x'
+      - name: Test solution
         run: dotnet test Actions-Kata
   
   publish_solution:
@@ -34,8 +36,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Publish solution
+      - name: Setup solution
         uses: actions/setup-dotnet@v2
         with: 
           dotnet-version: '3.1.x'
+      - name: Publish solution
         run: dotnet publish Actions-Kata
